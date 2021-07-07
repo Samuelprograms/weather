@@ -9,31 +9,31 @@ function App() {
   const API_KEY = "5b28acdebf394d5f8e2235338212906";
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [location, setLocation] = useState();
-  const [url, setUrl] = useState();
+  const [location, setLocation] = useState("London");
   const [time, setTime] = useState(
     "https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
   );
   const [temperature, setTemperature] = useState("Celsius");
   const [more, setMore] = useState({ message: "Show More", state: false });
 
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`;
   const removeAccents = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   };
 
-  useEffect(() => {
-    const getLocation = () => {
-      navigator.geolocation.watchPosition((position) => {
-        setLocation(`${position.coords.latitude},${position.coords.longitude}`);
-      });
-    };
-    getLocation();
-    if (location) {
-      setUrl(
-        `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
-      );
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   const getLocation = () => {
+  //     navigator.geolocation.watchPosition((position) => {
+  //       setLocation(`${position.coords.latitude},${position.coords.longitude}`);
+  //     });
+  //   };
+  //   getLocation();
+  //   if (location) {
+  //     setUrl(
+  //       `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
+  //     );
+  //   }
+  // }, [location]);
 
   useEffect(() => {
     if (location) {
@@ -93,7 +93,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <FirstPage back={time} >
+        <FirstPage back={time}>
           <Input
             type="text"
             placeholder="Search City"

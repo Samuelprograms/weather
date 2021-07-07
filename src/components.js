@@ -20,6 +20,10 @@ const FirstPage = styled.div`
   background-image: url(${(props) => props.back});
   background-position: center center;
   background-size: cover;
+  @media (max-width: 768px) {
+    padding-top: 50px;
+    height: 100%;
+  }
 `;
 const SecondPage = styled.div`
   background: #9b3fc1;
