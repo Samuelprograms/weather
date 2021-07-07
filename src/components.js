@@ -17,7 +17,7 @@ const FirstPage = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(${(props) => props.back});
+  background-image: url(${(props) => props.back});
   background-position: center center;
   background-size: cover;
 `;
@@ -40,7 +40,7 @@ const CardsDiv = styled.div`
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: linear-gradient(
-      to right,
+      to left,
       rgba(100, 100, 100, 0.5),
       rgba(500, 500, 500, 0.5)
     );

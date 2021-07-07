@@ -11,7 +11,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState();
   const [url, setUrl] = useState();
-  const [time, setTime] = useState("./day.jpg");
+  const [time, setTime] = useState(
+    "https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+  );
   const [temperature, setTemperature] = useState("Celsius");
   const [more, setMore] = useState({ message: "Show More", state: false });
 
@@ -65,14 +67,20 @@ function App() {
         )
         .then(() => {
           if (data.actualTime.split(":")[0] < 12) {
-            setTime("./day.jpg");
+            setTime(
+              "https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            );
           } else if (
             data.actualTime.split(":")[0] >= 12 &&
             data.actualTime.split(":")[0] < 18
           ) {
-            setTime("./afternoon.jpg");
+            setTime(
+              "https://images.pexels.com/photos/2386144/pexels-photo-2386144.jpeg?cs=srgb&dl=pexels-anderson-martins-2386144.jpg&fm=jpg"
+            );
           } else {
-            setTime("./night.jpg");
+            setTime(
+              "https://images.pexels.com/photos/1624360/pexels-photo-1624360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            );
           }
         })
         .catch((err) => console.error(err));
@@ -85,7 +93,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <FirstPage back={time}>
+        <FirstPage back={time} >
           <Input
             type="text"
             placeholder="Search City"
