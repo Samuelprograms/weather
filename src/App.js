@@ -21,20 +21,6 @@ function App() {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   };
 
-  // useEffect(() => {
-  //   const getLocation = () => {
-  //     navigator.geolocation.watchPosition((position) => {
-  //       setLocation(`${position.coords.latitude},${position.coords.longitude}`);
-  //     });
-  //   };
-  //   getLocation();
-  //   if (location) {
-  //     setUrl(
-  //       `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
-  //     );
-  //   }
-  // }, [location]);
-
   useEffect(() => {
     if (location) {
       axios
@@ -88,8 +74,10 @@ function App() {
     }
   }, [url, location, data.actualTime]);
 
-  if (isLoading || !data.code) {
+  if (isLoading) {
     return <h1>wait</h1>;
+  } else if (!data.code) {
+    return <h1>Getting data</h1>;
   } else {
     return (
       <div className="App">
