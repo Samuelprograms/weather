@@ -5,10 +5,11 @@ import Cards from "./Cards";
 import "./App.css";
 import axios from "axios";
 
+const API_KEY = "5b28acdebf394d5f8e2235338212906";
+
 function App() {
-  const API_KEY = "5b28acdebf394d5f8e2235338212906";
   const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [location, setLocation] = useState("London");
   const [time, setTime] = useState(
     "https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
