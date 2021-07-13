@@ -71,8 +71,8 @@ function App() {
           }
         })
         .catch((err) => console.error(err));
-      setIsLoading(false);
     }
+    setIsLoading(false);
   }, [url, location, data.actualTime]);
 
   if (isLoading) {
